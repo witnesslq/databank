@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="MyProject" default="all">
+	<description>Javascritp build for Ant</description>
+	<property name="css" location="${basedir}/../src/main/webapp/static/style" />
+	<property name="js" location="${basedir}/../src/main/webapp/static/js" />
+	<property name="build" location="${basedir}/../build" />
+	<property name="charset" value="utf-8" />
+	<property name="yuicompressor.jar" value="${basedir}/../lib/yuicompressor-2.4.8.jar" />
+	<!-- -->
+	<!-- - - - - - - - - - - - - - - - - -    
+		这个 ant 配置文件要经过4个流程：   
+			1、target init 进行初始化处理，创建一个目录build，用于暂存文件；   
+			2、target concat 合并js 文件，放到 build 目录下；   
+			3、target compress 调用 Yui Compressor 对合并后的 js 进行压缩   
+			4、target clean 进行清理动作，删除生成的 build 目录   
+		
+		ANT标签和属性解释：   
+			project 的 default 对应某个 target 的 name 值，表示默认执行哪个步骤；   
+			target 的 depends 对应其他某些 target 的 name 属性，表示依赖性；   
+			${name} 可以引用 property 中定义的值。   
+			mkdir 标签创建一个目录   
+			replaceregexp, 正则表达式替换，将DEBUG标识替换为空，在正式环境不处理DEBUG信息   
+			注意设置文件的 encoding 属性，否则可能有乱码情况   
+		
+		关于ANT的详细文档，请看官方手册：http://ant.apache.org/manual/           
+         - - - - - - - - - - - - - - - - - -->
+	<target name="init">
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="concat" depends="init">
+		<concat destfile="${build}/databank.all.js" encoding="${charset}" outputencoding="${charset}">
+			<fileset dir="${js}">
+				<include name="common.js" />
+				<include name="undeploy.js" />
+				<include name="databank.js" />
+			</fileset>
+		</concat>
+		
+		<concat destfile="${build}/databank.all.css" encoding="${charset}" outputencoding="${charset}">
+			<fileset dir="${css}">
+				<include name="font-awesome.css" />
+				<include name="databank.css" />
+			</fileset>
+		</concat>
+	</target>
+
+	<target name="compress" depends="concat">
+		<echo message="start compress" />
+		
+		<echo message="start databank js compress" />
+		<java jar="${yuicompressor.jar}" fork="true" failonerror="false">
+			<arg line="--type js --charset ${charset} --nomunge ${build}/databank.all.js -o ${js}/databank.min.js" />
+		</java>
+
+		<echo message="start databank css compress" />
+		<java jar="${yuicompressor.jar}" fork="true" failonerror="false">
+			<arg line="--type css --charset ${charset} ${build}/databank.all.css -o ${css}/databank.min.css" />
+		</java>
+
+		<echo message="end compress" />
+	</target>
+
+	<target name="clean" depends="compress">
+		<delete dir="${build}" />
+	</target>
+
+	<target name="all" depends="compress,clean">
+	</target>
+</project>

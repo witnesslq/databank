@@ -1,0 +1,26 @@
+K 10
+svn:ignore
+V 61
+*.iml
+.idea
+logs
+target
+.settings
+.classpath
+.project
+.sonar
+
+K 13
+svn:mergeinfo
+V 564
+/dev/app/databank-boss/branches/1.0.0:60713-76323
+/dev/app/databank-boss/branches/2.0.0:78312-79282
+/dev/app/databank-boss/branches/baitao.ji:78259-78311
+/dev/app/databank-boss/branches/hotfix_20140422:84494-84495
+/dev/app/databank-boss/branches/hotfix_20140710:91591-108341
+/dev/app/databank-boss/branches/hotfix_20141203:110898-110960
+/dev/app/databank-boss/branches/hotfix_mysql_driver:192200-192233
+/dev/app/databank-boss/trunk:110898-195562
+/dev/test/baitao.ji/databank/branches/1.0-SNAPSHOT:57845-58061
+/dev/test/baitao.ji/databank/branches/1.0.0:58062-60712
+END

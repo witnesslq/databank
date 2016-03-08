@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <display-name>databank</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:/databank-spring/databank-application.xml
+        </param-value>
+    </context-param>
+    <context-param>
+        <description>jstl massage resource bundle</description>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>resource</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>com.yeepay.g3.utils.web.ContextLoaderListenerExt</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.yeepay.g3.utils.web.ServiceInitalizeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.apache.struts2.dispatcher.ng.listener.StrutsListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>mvc</servlet-name>
+        <servlet-class>com.yeepay.g3.utils.web.emvc.EmvcDispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:databank-action/databank-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>schedule</servlet-name>
+        <servlet-class>com.yeepay.g3.app.databank.servlet.ServletToBeanProxy</servlet-class>
+        <init-param>
+            <param-name>targetBean</param-name>
+            <param-value>scheduleServlet</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>diskClean</servlet-name>
+        <servlet-class>com.yeepay.g3.app.databank.servlet.ServletToBeanProxy</servlet-class>
+        <init-param>
+            <param-name>targetBean</param-name>
+            <param-value>diskCleanServlet</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>freemarker</servlet-name>
+        <servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
+        <init-param>
+            <param-name>default_encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ObjectWrapper</param-name>
+            <param-value>beans</param-value>
+        </init-param>
+    </servlet>
+
+    <!-- Content Servlet 配置 -->
+    <servlet>
+        <servlet-name>StaticContentServlet</servlet-name>
+        <servlet-class>com.yeepay.g3.app.databank.servlet.StaticContentServlet</servlet-class>
+    </servlet>
+
+    <!-- [INSERT FRAGMENT HERE] -->
+
+    <servlet-mapping>
+        <servlet-name>mvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>schedule</servlet-name>
+        <url-pattern>/schedule</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>diskClean</servlet-name>
+        <url-pattern>/diskClean</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>freemarker</servlet-name>
+        <url-pattern>*.ftl</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>StaticContentServlet</servlet-name>
+        <url-pattern>/static-content</url-pattern>
+    </servlet-mapping>
+
+    <!-- Filter 定义 -->
+    <!-- Character Encoding filter -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Sitemesh filter -->
+    <filter>
+        <filter-name>sitemeshFilter</filter-name>
+        <filter-class>com.yeepay.g3.app.frame.BossPortalSiteMeshFilter</filter-class>
+        <init-param>
+            <param-name>autoReload</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>sitemeshFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>exceptionFilter</filter-name>
+        <filter-class>com.yeepay.g3.utils.web.ExceptionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>exceptionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <jsp-config>
+        <taglib>
+            <taglib-uri>/emvc-tags</taglib-uri>
+            <taglib-location>/WEB-INF/taglib/emvc-tags.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>/queryui-tags</taglib-uri>
+            <taglib-location>/WEB-INF/taglib/queryui-tags.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/error.jsp</location>
+    </error-page>
+</web-app>

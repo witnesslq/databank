@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service
+END
+ServiceException.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/ServiceException.java
+END
+ApplyManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/YeePay/!svn/ver/187421/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/ApplyManager.java
+END
+DefaultEhcacheManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/DefaultEhcacheManager.java
+END
+NoteManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/YeePay/!svn/ver/140343/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/NoteManager.java
+END
+DataBankSourceManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/YeePay/!svn/ver/190033/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/DataBankSourceManager.java
+END
+StatUserManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/StatUserManager.java
+END
+GenericManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/GenericManager.java
+END
+UserManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/UserManager.java
+END
+LogManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/LogManager.java
+END
+RoleManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/YeePay/!svn/ver/195542/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/RoleManager.java
+END
+SQLStatusManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/service/SQLStatusManager.java
+END

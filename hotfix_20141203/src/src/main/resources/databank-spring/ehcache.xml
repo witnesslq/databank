@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" name="myCache">
+
+	<!--<diskStore path="java.io.tmpdir/ehcache/databank" />-->
+
+	<defaultCache eternal="false" maxElementsInMemory="1000" timeToIdleSeconds="300" timeToLiveSeconds="600" overflowToDisk="false" />
+
+	<cache name="myCache" eternal="false" maxElementsInMemory="1000" timeToIdleSeconds="120" timeToLiveSeconds="180" overflowToDisk="false" />
+</ehcache>

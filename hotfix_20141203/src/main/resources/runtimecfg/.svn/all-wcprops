@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/runtimecfg
+END
+initcomponents.properties
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/runtimecfg/initcomponents.properties
+END
+destorycomponents.properties
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/runtimecfg/destorycomponents.properties
+END
+yeepay-config.properties
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/runtimecfg/yeepay-config.properties
+END

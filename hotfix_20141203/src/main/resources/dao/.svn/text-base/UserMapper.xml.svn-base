@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserEntity">
+
+    <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />-->
+    <!-- <cache type="org.mybatis.caches.ehcache.EhcacheCache"/> -->
+
+    <resultMap id="userDetailMap" type="UserEntity">
+        <id column="USER_ID" property="id" jdbcType="BIGINT"/>
+        <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR"/>
+        <result column="LAST_DS" property="lastDs" jdbcType="BIGINT"/>
+        <result column="LAST_MODIFIED_DATE" property="lastModifiedDate" jdbcType="TIMESTAMP"/>
+        <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP"/>
+        <collection column="USER_ID" property="roleList" ofType="RoleEntity"
+                    select="RoleEntity.getRoleByUserId"/>
+    </resultMap>
+
+    <!-- 获取用户数量 -->
+    <select id="count" resultType="Long">
+        SELECT
+            COUNT(1)
+        FROM DATABANK.TBL_DB_USER
+        WITH UR
+    </select>
+
+    <!-- 查询用户 -->
+    <select id="get" parameterType="Long" resultMap="userDetailMap">
+        SELECT
+            *
+        FROM DATABANK.TBL_DB_USER
+        WHERE USER_ID = #{id}
+        WITH UR
+    </select>
+
+    <select id="getByLoginname" parameterType="String" resultMap="userDetailMap">
+        SELECT
+            *
+        FROM DATABANK.TBL_DB_USER
+        WHERE LOGIN_NAME = #{loginname}
+        WITH UR
+    </select>
+
+    <select id="getLastDsIdByUserId" parameterType="Long" resultType="Long">
+        SELECT
+	        LAST_DS
+        FROM DATABANK.TBL_DB_USER
+        WHERE USER_ID = #{userId}
+        WITH UR
+    </select>
+
+    <insert id="insert" parameterType="UserEntity">
+        INSERT INTO DATABANK.TBL_DB_USER (USER_ID, LOGIN_NAME, LAST_DS, LAST_MODIFIED_DATE, CREATED_DATE)
+            VALUES (#{id}, #{loginName, jdbcType=VARCHAR}, 0, current_timestamp,
+                    current_timestamp)
+    </insert>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM DATABANK.TBL_DB_USER
+        WHERE USER_ID = #{id}
+    </delete>
+
+    <update id="update" parameterType="UserEntity">
+        UPDATE DATABANK.TBL_DB_USER
+        <set>
+            <if test="loginName != null and loginName !=''">
+                LOGIN_NAME = #{loginName},
+            </if>
+            last_modified_date=current_timestamp
+        </set>
+        WHERE USER_ID = #{id}
+    </update>
+
+    <update id="updateLastDs" parameterType="map">
+        UPDATE DATABANK.TBL_DB_USER
+        SET LAST_DS = #{lastDs}
+        WHERE USER_ID = #{userId}
+    </update>
+
+    <!-- 关联表操作 -->
+
+    <insert id="saveRelation" parameterType="map">
+        INSERT INTO DATABANK.TBL_DB_USER_ROLE (USER_ID, ROLE_ID,FLAG) VALUES
+        <foreach item="roleId" index="index" collection="roleIdList" separator=",">
+            (#{userId}, #{roleId},#{flag})
+        </foreach>
+    </insert>
+
+
+    <select id="getRelation" parameterType="Map" resultType="Long">
+        SELECT
+        USER_ID
+        FROM DATABANK.TBL_DB_USER_ROLE
+        WHERE USER_ID = #{userId} AND ROLE_ID=#{roleId}
+        WITH UR
+    </select>
+
+    <delete id="deleteRelationBatch" parameterType="map">
+        DELETE FROM DATABANK.TBL_DB_USER_ROLE
+        WHERE USER_ID = #{userId} AND ROLE_ID IN
+        <foreach item="roleId" index="index" collection="roleIdList" separator="," open="(" close=")">
+            #{roleId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteRelationAll" parameterType="Long">
+        DELETE FROM DATABANK.TBL_DB_USER_ROLE
+        WHERE USER_ID = #{userId}
+    </delete>
+</mapper>

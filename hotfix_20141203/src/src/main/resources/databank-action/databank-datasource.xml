@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:emvc="http://www.yeepay.com/schema/emvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.yeepay.com/schema/emvc http://www.yeepay.com/schema/emvc.xsd">
+
+    <emvc:package name="/datasource">
+        <emvc:action name="create" ref="dataSourceAction" method="create">
+            <emvc:result name="success" value="/WEB-INF/views/datasource/editForm.jsp"/>
+	        <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="update" ref="dataSourceAction" method="update">
+            <emvc:result name="success" value="/WEB-INF/views/datasource/editForm.jsp"/>
+            <emvc:result name="input" type="redirect" value="/datasource/list.action"/>
+	        <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="list" ref="dataSourceAction" method="list">
+            <emvc:result name="success" value="/WEB-INF/views/datasource/list.jsp"/>
+        </emvc:action>
+
+        <emvc:action name="loadTable" ref="dataSourceAction" method="loadSchemaAndTable"/>
+        <emvc:action name="listByEnvType" ref="dataSourceAction" method="listByEnvType"/>
+
+        <emvc:action name="delete" ref="dataSourceAction" method="delete"/>
+    </emvc:package>
+</beans>

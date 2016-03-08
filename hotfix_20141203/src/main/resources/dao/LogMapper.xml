@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="LogEntity">
+	<resultMap id="logDetailMap" type="LogEntity">
+		<result column="LOG_ID" property="id" jdbcType="BIGINT"/>
+		<result column="LOG_EXECUTOR" property="executor" jdbcType="VARCHAR"/>
+		<result column="LOG_DS_ID" property="dsId" jdbcType="BIGINT"/>
+		<result column="LOG_SCHEMA" property="schema" jdbcType="VARCHAR"/>
+		<result column="LOG_QUERY" property="query" jdbcType="VARCHAR"/>
+		<result column="LOG_LEVEL" property="level" jdbcType="VARCHAR"/>
+		<result column="LOG_SQL_STATUS" property="status" jdbcType="VARCHAR"/>
+		<result column="LOG_SCORE" property="score" jdbcType="INTEGER"/>
+		<result column="LOG_NUM" property="num" jdbcType="BIGINT"/>
+		<result column="LOG_START_DATETIME" property="startDateTime" jdbcType="TIMESTAMP"/>
+		<result column="LOG_START_DATESTR" property="startDate" jdbcType="VARCHAR"/>
+		<result column="LOG_USED_MILLISECOND" property="usedMilliSecond" jdbcType="BIGINT"/>
+	</resultMap>
+
+	<select id="count" resultType="Long">
+		SELECT
+			COUNT(1)
+		FROM DATABANK.TBL_DB_LOG
+		WITH UR
+	</select>
+
+	<select id="get" parameterType="Long" resultMap="logDetailMap">
+		SELECT
+			*
+		FROM DATABANK.TBL_DB_LOG
+		WHERE LOG_ID = #{id}
+		WITH UR
+	</select>
+
+	<select id="countByExecutor" parameterType="map" resultType="Integer">
+		SELECT
+			count(1)
+		FROM DATABANK.TBL_DB_LOG
+		WHERE LOG_EXECUTOR = #{executor}
+			  AND LOG_START_DATETIME >= current_timestamp - #{before} SECOND
+		FETCH FIRST 500 ROWS ONLY
+		WITH UR
+	</select>
+
+	<select id="getUsedUserNameByDay" parameterType="map" resultType="String">
+		SELECT
+			executor
+		FROM DATABANK.TBL_DB_LOG
+		WHERE LOG_START_DATETIME >= #{start} AND #{end} > LOG_START_DATETIME
+		WITH UR
+	</select>
+
+	<insert id="insert" parameterType="LogEntity" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="long" order="BEFORE">
+			VALUES NEXTVAL FOR DATABANK.SEQ_LOG
+		</selectKey>
+		INSERT INTO DATABANK.TBL_DB_LOG (LOG_ID, LOG_EXECUTOR, LOG_DS_ID, LOG_SCHEMA, LOG_QUERY, LOG_LEVEL, LOG_STATUS,
+		LOG_SQL_STATUS, LOG_SCORE, LOG_NUM, LOG_START_DATETIME, LOG_START_DATESTR, LOG_USED_MILLISECOND)
+		VALUES (#{id}, #{executor}, #{dsId}, #{schema}, #{query}, #{level}, 1, #{status}, #{score}, #{num},
+		current_timestamp, current_date, #{usedMilliSecond})
+	</insert>
+
+	<!--<delete id="delete" parameterType="Long">-->
+	<!--DELETE FROM DATABANK.TBL_DB_LOG-->
+	<!--WHERE LOG_ID = #{id}-->
+	<!--</delete>-->
+
+	<update id="update" parameterType="LogEntity">
+		UPDATE DATABANK.TBL_DB_LOG
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="status != null and status !=''">
+				LOG_SQL_STATUS = #{status},
+			</if>
+			<if test="score != null">
+				LOG_SCORE = #{score},
+			</if>
+			<if test="num != null">
+				LOG_NUM = #{num},
+			</if>
+			<if test="usedMilliSecond != null">
+				LOG_USED_MILLISECOND = #{usedMilliSecond},
+			</if>
+		</trim>
+		WHERE LOG_ID = #{id}
+	</update>
+</mapper>

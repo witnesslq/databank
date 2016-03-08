@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/YeePay/!svn/ver/190448/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype
+END
+CacheKeyEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/YeePay/!svn/ver/190448/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype/CacheKeyEnum.java
+END
+TagTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype/TagTypeEnum.java
+END
+ParameterTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype/ParameterTypeEnum.java
+END
+IsolationTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/YeePay/!svn/ver/121901/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype/IsolationTypeEnum.java
+END
+DatabaseTypeEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype/DatabaseTypeEnum.java
+END
+ParameterClassEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype/ParameterClassEnum.java
+END
+ApplyStatusEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/YeePay/!svn/ver/187421/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype/ApplyStatusEnum.java
+END
+LogLevelEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/YeePay/!svn/ver/121913/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/enumtype/LogLevelEnum.java
+END

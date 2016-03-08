@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="useGeneratedKeys" value="true"/>
+        <setting name="defaultExecutorType" value="REUSE"/>
+    </settings>
+
+    <!--<typeHandlers>-->
+    <!--<typeHandler jdbcType="DECIMAL" javaType="com.yeepay.g3.common.Amount"-->
+    <!--handler="com.yeepay.g3.app.databank.com.yeepay.g3.app.databank.dao.typehandler.AmountTypeHandler"/>-->
+    <!--</typeHandlers>-->
+
+    <typeAliases>
+        <typeAlias type="com.yeepay.g3.app.databank.entity.UserEntity"/>
+        <typeAlias type="com.yeepay.g3.app.databank.entity.RoleEntity"/>
+        <typeAlias type="com.yeepay.g3.app.databank.entity.DataBankSource"/>
+        <typeAlias type="com.yeepay.g3.app.databank.entity.LogEntity"/>
+        <typeAlias type="com.yeepay.g3.app.databank.entity.SQLStatusEntity"/>
+        <typeAlias type="com.yeepay.g3.app.databank.entity.NoteEntity"/>
+        <typeAlias type="com.yeepay.g3.app.databank.entity.StatUserEntity"/>
+        <typeAlias type="com.yeepay.g3.app.databank.entity.ApplyEntity"/>
+        <typeAlias type="com.yeepay.g3.app.databank.enumtype.DatabaseTypeEnum"/>
+        <typeAlias type="com.yeepay.g3.app.databank.enumtype.LogLevelEnum"/>
+        <!--<typeAlias type="com.yeepay.g3.app.databank.enumtype.ParameterClassEnum"/>-->
+        <!--<typeAlias type="com.yeepay.g3.app.databank.enumtype.ParameterTypeEnum"/>-->
+        <!--<typeAlias type="com.yeepay.g3.app.databank.enumtype.TagTypeEnum"/>-->
+
+    </typeAliases>
+</configuration>

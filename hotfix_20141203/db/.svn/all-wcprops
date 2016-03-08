@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/YeePay/!svn/ver/195542/dev/app/databank-boss/branches/hotfix_20141203/db
+END
+2013-10-25_纪柏涛_数据银行项目2期优化.sql
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/db/2013-10-25_%E7%BA%AA%E6%9F%8F%E6%B6%9B_%E6%95%B0%E6%8D%AE%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE2%E6%9C%9F%E4%BC%98%E5%8C%96.sql
+END
+2013-08-01_纪柏涛_数据银行项目2期.sql
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/db/2013-08-01_%E7%BA%AA%E6%9F%8F%E6%B6%9B_%E6%95%B0%E6%8D%AE%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE2%E6%9C%9F.sql
+END
+2013-06-06_纪柏涛_数据银行项目1期优化.sql
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/db/2013-06-06_%E7%BA%AA%E6%9F%8F%E6%B6%9B_%E6%95%B0%E6%8D%AE%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE1%E6%9C%9F%E4%BC%98%E5%8C%96.sql
+END
+dbschema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/db/dbschema.sql
+END
+dbinit.sql
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/YeePay/!svn/ver/140343/dev/app/databank-boss/branches/hotfix_20141203/db/dbinit.sql
+END
+2015-12-08_胡根深_列级权限及数据源申请.sql
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/YeePay/!svn/ver/195542/dev/app/databank-boss/branches/hotfix_20141203/db/2015-12-08_%E8%83%A1%E6%A0%B9%E6%B7%B1_%E5%88%97%E7%BA%A7%E6%9D%83%E9%99%90%E5%8F%8A%E6%95%B0%E6%8D%AE%E6%BA%90%E7%94%B3%E8%AF%B7.sql
+END
+2013-05-21_纪柏涛_数据银行项目首次上线.sql
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/db/2013-05-21_%E7%BA%AA%E6%9F%8F%E6%B6%9B_%E6%95%B0%E6%8D%AE%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE%E9%A6%96%E6%AC%A1%E4%B8%8A%E7%BA%BF.sql
+END
+2014-01-10_纪柏涛_数据银行项目约束提示.sql
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/db/2014-01-10_%E7%BA%AA%E6%9F%8F%E6%B6%9B_%E6%95%B0%E6%8D%AE%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E6%8F%90%E7%A4%BA.sql
+END
+2013-10-10_纪柏涛_数据银行项目2期小需求.sql
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/db/2013-10-10_%E7%BA%AA%E6%9F%8F%E6%B6%9B_%E6%95%B0%E6%8D%AE%E9%93%B6%E8%A1%8C%E9%A1%B9%E7%9B%AE2%E6%9C%9F%E5%B0%8F%E9%9C%80%E6%B1%82.sql
+END

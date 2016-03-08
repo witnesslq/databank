@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:emvc="http://www.yeepay.com/schema/emvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.yeepay.com/schema/emvc http://www.yeepay.com/schema/emvc.xsd">
+
+    <emvc:package name="/user">
+        <emvc:action name="create" ref="userAction" method="create">
+            <emvc:result name="success" value="/WEB-INF/views/account/user/editForm.jsp"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="update" ref="userAction" method="update">
+            <emvc:result name="success" value="/WEB-INF/views/account/user/editForm.jsp"/>
+            <emvc:result name="input" type="redirect" value="/user/list.action"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="list" ref="userAction" method="list">
+            <emvc:result name="success" value="/WEB-INF/views/account/user/list.jsp"/>
+        </emvc:action>
+
+        <emvc:action name="delete" ref="userAction" method="delete"/>
+        <emvc:action name="userList" ref="userAction" method="userList"/>
+        <emvc:action name="userInfo" ref="userAction" method="userInfo"/>
+    </emvc:package>
+
+    <emvc:package name="/role">
+        <emvc:action name="create" ref="roleAction" method="create">
+            <emvc:result name="success" value="/WEB-INF/views/account/role/editForm.jsp"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="update" ref="roleAction" method="update" >
+            <emvc:result name="success" value="/WEB-INF/views/account/role/editForm.jsp"/>
+            <emvc:result name="input" type="redirect" value="/role/list.action"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="list" ref="roleAction" method="list">
+            <emvc:result name="success" value="/WEB-INF/views/account/role/list.jsp"/>
+        </emvc:action>
+
+        <emvc:action name="delete" ref="roleAction" method="delete"/>
+    </emvc:package>
+</beans>

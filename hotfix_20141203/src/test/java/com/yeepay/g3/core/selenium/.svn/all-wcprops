@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/core/selenium
+END
+WebDriverFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/core/selenium/WebDriverFactory.java
+END
+Selenium2.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/core/selenium/Selenium2.java
+END
+SeleniumSnapshotRule.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/core/selenium/SeleniumSnapshotRule.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources
+END
+rebel.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/YeePay/!svn/ver/140211/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/rebel.xml
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/application.properties
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/log4j.xml
+END

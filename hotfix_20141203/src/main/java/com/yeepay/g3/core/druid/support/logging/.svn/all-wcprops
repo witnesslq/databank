@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging
+END
+Log.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging/Log.java
+END
+Log4jImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging/Log4jImpl.java
+END
+JakartaCommonsLoggingImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging/JakartaCommonsLoggingImpl.java
+END
+SLF4JImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging/SLF4JImpl.java
+END
+NoLoggingImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging/NoLoggingImpl.java
+END
+Jdk14LoggingImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging/Jdk14LoggingImpl.java
+END
+LogFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging/LogFactory.java
+END
+Resources.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/support/logging/Resources.java
+END

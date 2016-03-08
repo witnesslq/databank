@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DataBankSource">
+    <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />-->
+    <!-- <cache type="org.mybatis.caches.ehcache.EhcacheCache"/> -->
+
+    <resultMap id="datasourceDetailMap" type="DataBankSource">
+        <result column="DS_ID" property="id" jdbcType="BIGINT"/>
+        <result column="DS_NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="DB_TYPE" property="dbType" jdbcType="VARCHAR"/>
+        <result column="DS_CONN_STR" property="connStr" jdbcType="VARCHAR"/>
+        <result column="DS_USERNAME" property="username" jdbcType="VARCHAR"/>
+        <result column="DS_PASSWORD" property="password" jdbcType="VARCHAR"/>
+        <result column="DS_PASSWORD_CIPHER" property="passwordCipher" jdbcType="VARCHAR"/>
+        <result column="DS_SIGNTURE" property="signture" jdbcType="VARCHAR"/>
+        <result column="DS_DESCRIPTION" property="description" jdbcType="VARCHAR"/>
+        <result column="LAST_MODIFIED_DATE" property="lastModifiedDate" jdbcType="TIMESTAMP"/>
+        <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="count" resultType="Long">
+        SELECT
+        COUNT(1)
+        FROM DATABANK.TBL_DB_DATASOURCE
+        WITH UR
+    </select>
+
+    <select id="get" parameterType="Long" resultMap="datasourceDetailMap">
+        SELECT *
+        FROM DATABANK.TBL_DB_DATASOURCE
+        WHERE DS_ID = #{id}
+        WITH UR
+    </select>
+
+    <select id="getAll" resultMap="datasourceDetailMap">
+        SELECT *
+        FROM DATABANK.TBL_DB_DATASOURCE
+        WITH UR
+    </select>
+
+    <select id="getByIds" resultMap="datasourceDetailMap">
+        SELECT *
+        FROM DATABANK.TBL_DB_DATASOURCE
+        WHERE DS_ID IN
+        <foreach item="dsId" index="index" collection="list" separator="," open="(" close=")">
+            #{dsId}
+        </foreach>
+        WITH ur
+    </select>
+
+    <insert id="insert" parameterType="DataBankSource">
+        <selectKey keyProperty="id" resultType="long" order="BEFORE">
+            VALUES NEXTVAL FOR DATABANK.SEQ_DS
+        </selectKey>
+        INSERT INTO DATABANK.TBL_DB_DATASOURCE (DS_ID, DS_NAME, DB_TYPE, DS_CONN_STR, DS_USERNAME,
+        DS_PASSWORD, DS_PASSWORD_CIPHER, DS_SIGNTURE, DS_DESCRIPTION, LAST_MODIFIED_DATE, CREATED_DATE)
+        VALUES (#{id}, #{name}, #{dbType, jdbcType=VARCHAR}, #{connStr}, #{username},
+        #{password}, #{passwordCipher}, #{signture}, #{description}, current_timestamp, current_timestamp)
+    </insert>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM DATABANK.TBL_DB_DATASOURCE
+        WHERE DS_ID = #{id}
+    </delete>
+
+    <update id="update" parameterType="DataBankSource">
+        UPDATE DATABANK.TBL_DB_DATASOURCE
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name !=''">
+                DS_NAME = #{name},
+            </if>
+            <if test="dbType != null and dbType !=''">
+                DB_TYPE = #{dbType, jdbcType=VARCHAR},
+            </if>
+            <if test="connStr != null and connStr !=''">
+                DS_CONN_STR = #{connStr},
+            </if>
+            <if test="username != null and username !=''">
+                DS_USERNAME = #{username},
+            </if>
+            <if test="passwordCipher != null and passwordCipher !=''">
+                DS_PASSWORD_CIPHER = #{passwordCipher},
+            </if>
+            <if test="signture != null and signture !=''">
+                DS_SIGNTURE = #{signture},
+            </if>
+            <if test="description != null and description !=''">
+                DS_DESCRIPTION = #{description},
+            </if>
+            LAST_MODIFIED_DATE = CURRENT_TIMESTAMP,
+        </trim>
+        WHERE DS_ID = #{id}
+    </update>
+
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:emvc="http://www.yeepay.com/schema/emvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.yeepay.com/schema/emvc http://www.yeepay.com/schema/emvc.xsd">
+
+    <emvc:package name="/datasource">
+        <emvc:action name="create" ref="dataSourceAction" method="create">
+            <emvc:result name="success" value="/WEB-INF/views/datasource/editForm.jsp"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="update" ref="dataSourceAction" method="update">
+            <emvc:result name="success" value="/WEB-INF/views/datasource/editForm.jsp"/>
+            <emvc:result name="input" type="redirect" value="/datasource/list.action"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="list" ref="dataSourceAction" method="list">
+            <emvc:result name="success" value="/WEB-INF/views/datasource/list.jsp"/>
+        </emvc:action>
+
+
+        <emvc:action name="loadTable" ref="dataSourceAction" method="loadSchemaAndTable"/>
+        <emvc:action name="loadTableColumn" ref="dataSourceAction" method="loadTableColumn"/>
+
+        <emvc:action name="listByEnvType" ref="dataSourceAction" method="listByEnvType"/>
+
+        <emvc:action name="delete" ref="dataSourceAction" method="delete"/>
+    </emvc:package>
+
+    <emvc:package name="/application">
+        <emvc:action name="list" ref="dataSourceAction" method="loadUserRs">
+            <emvc:result name="success" value="/WEB-INF/views/application/list.jsp"/>
+        </emvc:action>
+        <emvc:action name="update" ref="dataSourceAction" method="update">
+            <emvc:result name="success" value="/WEB-INF/views/application/apply.jsp"/>
+        </emvc:action>
+        <emvc:action name="apply" ref="applicationAction" method="apply">
+        </emvc:action>
+
+        <emvc:action name="loadApplDs" ref="dataSourceAction" method="loadUserApplRs">
+            <emvc:result name="success" value="/WEB-INF/views/application/loadApplDs.jsp"/>
+        </emvc:action>
+
+        <emvc:action name="review" ref="applicationAction" method="list">
+            <emvc:result name="success" value="/WEB-INF/views/application/applyList.jsp"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+        <emvc:action name="updateApply" ref="applicationAction" method="updateApply">
+            <emvc:result name="success" value="/WEB-INF/views/application/review.jsp"/>
+            <emvc:result name="input" type="redirect" value="/application/review.action"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="check" ref="applicationAction" method="listApplyByUser">
+            <emvc:result name="success" value="/WEB-INF/views/application/userApplyList.jsp"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="checkReview" ref="applicationAction" method="listViewInfo">
+            <emvc:result name="success" value="/WEB-INF/views/application/userReviewList.jsp"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="addReview" ref="applicationAction" method="addReview">
+        </emvc:action>
+        <emvc:action name="viewDetail" ref="applicationAction" method="viewDetail">
+            <emvc:result name="success" value="/WEB-INF/views/application/reviewDetails.jsp"/>
+        </emvc:action>
+        <emvc:action name="updateView" ref="applicationAction" method="updateView">
+            <emvc:result name="success" value="/WEB-INF/views/application/updateView.jsp"/>
+        </emvc:action>
+    </emvc:package>
+</beans>

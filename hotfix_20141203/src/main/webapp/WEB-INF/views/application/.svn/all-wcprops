@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/YeePay/!svn/ver/195831/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application
+END
+reviewDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/YeePay/!svn/ver/187421/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application/reviewDetails.jsp
+END
+list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/YeePay/!svn/ver/195831/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application/list.jsp
+END
+userReviewList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/YeePay/!svn/ver/195542/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application/userReviewList.jsp
+END
+updateView.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/YeePay/!svn/ver/195305/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application/updateView.jsp
+END
+userApplyList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/YeePay/!svn/ver/190514/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application/userApplyList.jsp
+END
+applyList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/YeePay/!svn/ver/194911/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application/applyList.jsp
+END
+review.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application/review.jsp
+END
+loadApplDs.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/YeePay/!svn/ver/195542/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/views/application/loadApplDs.jsp
+END

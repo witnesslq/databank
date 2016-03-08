@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:utils="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+       default-lazy-init="true">
+
+    <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+    <context:component-scan base-package="com.yeepay.g3.app.databank"/>
+
+    <utils:properties id="propertiesReader" location="classpath:application.properties"/>
+
+    <import resource="classpath*:yeepay-event-spring/event-base-bean.xml"/>
+    <import resource="classpath:databank-spring/databank-core.xml"/>
+    <import resource="classpath:databank-spring/databank-ehcache.xml"/>
+    <import resource="classpath:databank-spring/databank-query.xml"/>
+    <!--<import resource="classpath:databank-spring/databank-scheduler.xml"/>-->
+
+    <bean id="outputHelperContext" class="com.yeepay.g3.app.databank.helper.file.OutputHelperContext">
+        <property name="diskCleanScanner" ref="diskCleanScanner"/>
+        <property name="helperMap">
+            <map>
+                <entry key="csv">
+                    <bean class="com.yeepay.g3.app.databank.helper.file.CSVHelper"/>
+                </entry>
+                <entry key="excel">
+                    <bean class="com.yeepay.g3.app.databank.helper.file.ExcelHelper"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

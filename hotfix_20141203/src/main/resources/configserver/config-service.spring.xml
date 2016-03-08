@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!--  
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	-->
+
+	<bean id="configDataSource" class="com.yeepay.g3.utils.config.ConfigDataSourceFactoryBean"/>
+
+	<!--  
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="transactionTemplate"
+		class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+	-->
+
+	<bean id="configSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:configserver/mybatis-config.xml" />
+		<property name="dataSource" ref="configDataSource" />
+	</bean>
+	
+	<bean id="configBaseDao" class="org.mybatis.spring.support.SqlSessionDaoSupport" abstract="true">
+		<property name="sqlSessionFactory" ref="configSqlSessionFactory" />
+	</bean>
+
+	<import resource="classpath:/com/yeepay/g3/utils/config/service/service.spring.xml" />
+</beans>

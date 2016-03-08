@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/resources/db
+END
+dbschema.sql
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/resources/db/dbschema.sql
+END
+dbinit.sql
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/resources/db/dbinit.sql
+END

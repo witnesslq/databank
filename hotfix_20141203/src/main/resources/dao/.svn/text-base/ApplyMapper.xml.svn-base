@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ApplyEntity">
+    <resultMap id="ApplyEntityMap" type="ApplyEntity">
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="USER_ID" property="userId" jdbcType="BIGINT"/>
+        <result column="DS_ID" property="dsId" jdbcType="BIGINT"/>
+        <result column="APPLY_REASON" property="applyReason" jdbcType="VARCHAR"/>
+        <result column="APPLY_STATUS" property="applyStatus" jdbcType="VARCHAR"/>
+        <result column="REVIEW_NAME" property="reviewName" jdbcType="VARCHAR"/>
+        <result column="REVIEW_MESSAGE" property="reviewMessage" jdbcType="VARCHAR"/>
+        <result column="APPLY_USE_DATETIME" property="applyUseDateTime" jdbcType="TIMESTAMP"/>
+        <result column="ALLOW_USE_DATETIME" property="allowUseDateTime" jdbcType="TIMESTAMP"/>
+        <result column="CREATED_DATETIME" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="LAST_MODIFIED_DATETIME" property="lastModifiedDate" jdbcType="TIMESTAMP"/>
+        <result column="ALLOW_TABLE" property="allowTable" jdbcType="VARCHAR"/>
+        <result column="NOTALLOW_TABLE" property="notAllowTable" jdbcType="VARCHAR"/>
+        <result column="ALLOW_COLUMN" property="allowColumn" jdbcType="VARCHAR"/>
+        <result column="NOTALLOW_COLUMN" property="notAllowColumn" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="addApplyMessage" parameterType="ApplyEntity">
+    INSERT INTO DATABANK.TBL_DS_APPLY (USER_ID,DS_ID,APPLY_REASON,
+    APPLY_STATUS, APPLY_USE_DATETIME,CREATED_DATETIME, LAST_MODIFIED_DATETIME,ALLOW_TABLE,NOTALLOW_TABLE,ALLOW_COLUMN,NOTALLOW_COLUMN)
+     VALUES (
+      #{userId},
+      #{dsId},
+      #{applyReason},
+      #{applyStatus},
+      #{applyUseDateTime},
+      CURRENT_TIMESTAMP,
+      CURRENT_TIMESTAMP,
+       #{allowTable},
+       #{notAllowTable},
+       #{allowColumn},
+       #{notAllowColumn}
+     )
+     </insert>
+
+    <select id="get" parameterType="Long" resultMap="ApplyEntityMap">
+        SELECT *
+        FROM DATABANK.TBL_DS_APPLY
+        WHERE ID = #{id}
+        WITH UR
+    </select>
+
+    <update id="update" parameterType="ApplyEntity">
+        UPDATE DATABANK.TBL_DS_APPLY
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="reviewName != null and reviewName !=''">
+                REVIEW_NAME = #{reviewName},
+            </if>
+            <if test="reviewMessage != null and reviewMessage !=''">
+                REVIEW_MESSAGE = #{reviewMessage, jdbcType=VARCHAR},
+            </if>
+            <if test="applyStatus != null and applyStatus !=''">
+                APPLY_STATUS = #{applyStatus},
+            </if>
+            ALLOW_USE_DATETIME = #{allowUseDateTime},
+            LAST_MODIFIED_DATETIME = CURRENT_TIMESTAMP
+        </trim>
+        WHERE ID = #{id}
+    </update>
+
+    <insert id="addUserDataSource" parameterType="map">
+      INSERT INTO DATABANK.TBL_DB_USER_DATASOURCE
+     (USER_ID,DS_ID,START_DATETIME,END_DATETIME)
+     VALUES (
+     #{userId},
+     #{dsId},
+     CURRENT_TIMESTAMP ,
+     #{endDateTime}
+     )
+    </insert>
+
+    <select id="getByUserIdAndDsId" parameterType="map" resultMap="ApplyEntityMap">
+        SELECT *
+        FROM DATABANK.TBL_DS_APPLY
+        WHERE USER_ID = #{userId}
+        AND  DS_ID=#{dsId}
+        AND  APPLY_STATUS=#{applyStatus}
+        WITH UR
+    </select>
+
+</mapper>

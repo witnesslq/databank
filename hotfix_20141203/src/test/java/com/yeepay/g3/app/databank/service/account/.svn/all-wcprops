@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/YeePay/!svn/ver/185930/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/app/databank/service/account
+END
+UserManagerImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/app/databank/service/account/UserManagerImplTest.java
+END
+RoleManagerImplTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/YeePay/!svn/ver/185930/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/app/databank/service/account/RoleManagerImplTest.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/configserver
+END
+config-service.spring.xml
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/configserver/config-service.spring.xml
+END
+boss-config-service.spring.xml
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/configserver/boss-config-service.spring.xml
+END
+mybatis-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/configserver/mybatis-config.xml
+END

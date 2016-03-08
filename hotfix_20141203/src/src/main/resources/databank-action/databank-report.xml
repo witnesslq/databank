@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:emvc="http://www.yeepay.com/schema/emvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.yeepay.com/schema/emvc http://www.yeepay.com/schema/emvc.xsd">
+
+    <!--<emvc:package name="/report">-->
+    <!--<emvc:action name="create" ref="reportTemplateAction" method="create">-->
+    <!--<emvc:result name="success" value="/WEB-INF/views/report/editForm.jsp"/>-->
+    <!--<emvc:result name="json" type="json"/>-->
+    <!--</emvc:action>-->
+
+    <!--<emvc:action name="update" ref="reportTemplateAction" method="update">-->
+    <!--<emvc:result name="success" value="/WEB-INF/views/report/editForm.jsp"/>-->
+    <!--<emvc:result name="json" type="json"/>-->
+    <!--</emvc:action>-->
+
+    <!--<emvc:action name="list" ref="reportTemplateAction" method="list">-->
+    <!--<emvc:result name="success" value="/WEB-INF/views/report/list.jsp"/>-->
+    <!--</emvc:action>-->
+
+    <!--<emvc:action name="delete" ref="reportTemplateAction" method="delete"/>-->
+    <!--<emvc:action name="verify" ref="reportTemplateAction" method="verify"/>-->
+    <!--</emvc:package>-->
+
+    <emvc:package name="/query">
+        <emvc:action name="query" ref="quickQueryAction" method="query">
+            <emvc:result name="success" value="/WEB-INF/views/report/query.jsp"/>
+            <emvc:result name="error" value="/WEB-INF/views/error.jsp"/>
+            <emvc:result name="json" type="json"/>
+        </emvc:action>
+
+        <emvc:action name="error" ref="quickQueryAction" method="error">
+            <emvc:result name="success" value="/WEB-INF/views/report/error.jsp"/>
+        </emvc:action>
+
+        <emvc:action name="down" ref="quickQueryAction" method="down"/>
+    </emvc:package>
+</beans>

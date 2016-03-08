@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao
+END
+UserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/YeePay/!svn/ver/194791/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/UserMapper.xml
+END
+LogMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/YeePay/!svn/ver/141028/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/LogMapper.xml
+END
+RoleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/RoleMapper.xml
+END
+Configuration.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/YeePay/!svn/ver/185930/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/Configuration.xml
+END
+SQLStatusMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/SQLStatusMapper.xml
+END
+ApplyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/YeePay/!svn/ver/195542/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/ApplyMapper.xml
+END
+NoteMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/YeePay/!svn/ver/140343/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/NoteMapper.xml
+END
+DataSourceMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/DataSourceMapper.xml
+END
+StatUserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/YeePay/!svn/ver/141028/dev/app/databank-boss/branches/hotfix_20141203/src/main/resources/dao/StatUserMapper.xml
+END

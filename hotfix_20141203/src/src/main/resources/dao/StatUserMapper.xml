@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="StatUserEntity">
+	<resultMap id="statUserDetailMap" type="StatUserEntity">
+		<result column="ID" property="id" jdbcType="BIGINT"/>
+		<result column="DATESTR" property="date" jdbcType="VARCHAR"/>
+		<result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR"/>
+		<result column="NUM" property="num" jdbcType="INTEGER"/>
+		<result column="AVG_SCORE" property="avgScore" jdbcType="INTEGER"/>
+		<result column="SUM_TIME" property="sumTime" jdbcType="INTEGER"/>
+		<result column="AVG_TIME" property="avgTime" jdbcType="INTEGER"/>
+	</resultMap>
+
+	<select id="getByLoginName" parameterType="map" resultMap="statUserDetailMap">
+		SELECT
+			d.DATESTR,
+			COALESCE(NUM, 0)       AS NUM,
+			COALESCE(AVG_SCORE, 0) AS AVG_SCORE,
+			COALESCE(SUM_TIME, 0)  AS SUM_TIME,
+			COALESCE(AVG_TIME, 0)  AS AVG_TIME
+		FROM DATABANK.TBL_DATE d
+			LEFT JOIN DATABANK.TBL_STAT_USER su
+				ON LOGIN_NAME = #{loginName} AND d.DATESTR = su.DATESTR
+		WHERE d.DATESTR BETWEEN #{start} AND #{end}
+		ORDER BY d.DATESTR ASC
+		WITH UR
+	</select>
+
+	<insert id="insert" parameterType="StatUserEntity" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO DATABANK.TBL_STAT_USER (DATESTR, LOGIN_NAME, NUM, AVG_SCORE, SUM_TIME, AVG_TIME)
+		VALUES (#{date}, #{loginName}, #{num}, #{avgScore}, #{sumTime}, #{avgTime})
+	</insert>
+
+	<insert id="generateByDay" parameterType="String">
+		INSERT INTO DATABANK.TBL_STAT_USER (DATESTR, LOGIN_NAME, NUM, AVG_SCORE, SUM_TIME, AVG_TIME)
+			SELECT
+				#{day},
+				LOG_EXECUTOR,
+				count(1),
+				avg(LOG_SCORE),
+				sum(LOG_USED_MILLISECOND),
+				avg(LOG_USED_MILLISECOND)
+			FROM databank.TBL_DB_LOG
+			WHERE log_start_datestr = #{day}
+			GROUP BY LOG_EXECUTOR
+	</insert>
+
+	<delete id="deleteByDay" parameterType="String">
+		DELETE FROM DATABANK.TBL_STAT_USER
+			WHERE datestr = #{day}
+	</delete>
+
+</mapper>

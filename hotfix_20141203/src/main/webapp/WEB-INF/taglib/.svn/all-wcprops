@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/taglib
+END
+queryui-tags.tld
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/taglib/queryui-tags.tld
+END
+emvc-tags.tld
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/webapp/WEB-INF/taglib/emvc-tags.tld
+END

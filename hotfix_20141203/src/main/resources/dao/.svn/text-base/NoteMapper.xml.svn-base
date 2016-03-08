@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="NoteEntity">
+
+	<!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 -->
+	<!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />-->
+	<!-- <cache type="org.mybatis.caches.ehcache.EhcacheCache"/> -->
+
+    <resultMap id="noteDetailMap" type="NoteEntity">
+        <result column="NOTE_ID" property="id" jdbcType="BIGINT"/>
+        <result column="NOTE_NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="NOTE_DS_ID" property="dsId" jdbcType="BIGINT"/>
+        <result column="NOTE_SCHEMA" property="schema" jdbcType="VARCHAR"/>
+        <result column="NOTE_QUERY" property="query" jdbcType="VARCHAR"/>
+        <result column="NOTE_USED_TIMES" property="usedTimes" jdbcType="BIGINT"/>
+        <result column="LAST_MODIFIED_DATE" property="lastModifiedDate" jdbcType="TIMESTAMP"/>
+        <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="count" resultType="Long">
+        SELECT
+            COUNT(1)
+        FROM DATABANK.TBL_DB_NOTE
+        WITH UR
+    </select>
+
+    <select id="get" parameterType="Long" resultMap="noteDetailMap">
+        SELECT *
+        FROM DATABANK.TBL_DB_NOTE
+        WHERE NOTE_ID = #{id}
+        WITH UR
+    </select>
+
+    <select id="getByUserId" parameterType="Long" resultMap="noteDetailMap">
+        SELECT A.*
+        FROM DATABANK.TBL_DB_NOTE as A
+        LEFT JOIN DATABANK.TBL_DB_USER_NOTE as B
+        ON A.NOTE_ID = B.NOTE_ID
+        WHERE B.USER_ID = #{userId}
+        ORDER BY A.NOTE_USED_TIMES DESC
+        WITH UR
+    </select>
+
+    <insert id="insert" parameterType="NoteEntity">
+        <selectKey keyProperty="id" resultType="long" order="BEFORE">
+            VALUES NEXTVAL FOR DATABANK.SEQ_NOTE
+        </selectKey>
+        INSERT INTO DATABANK.TBL_DB_NOTE (NOTE_ID, NOTE_NAME, NOTE_DS_ID, NOTE_SCHEMA, NOTE_QUERY, NOTE_USED_TIMES,
+        LAST_MODIFIED_DATE, CREATED_DATE)
+        VALUES (#{id}, #{name, jdbcType=VARCHAR}, #{dsId}, #{schema, jdbcType=VARCHAR}, #{query, jdbcType=VARCHAR}, 0, current_timestamp,
+        current_timestamp)
+    </insert>
+
+    <insert id="addRelation" parameterType="map">
+        INSERT INTO DATABANK.TBL_DB_USER_NOTE (NOTE_ID, USER_ID)
+        VALUES (#{noteId}, #{userId})
+    </insert>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM DATABANK.TBL_DB_NOTE
+        WHERE NOTE_ID = #{id}
+    </delete>
+
+    <update id="update" parameterType="NoteEntity">
+        UPDATE DATABANK.TBL_DB_NOTE
+        <trim prefix="SET">
+            <if test="name != null and name !=''">
+                NOTE_NAME = #{name},
+            </if>
+            <if test="dsId > 0">
+                NOTE_DS_ID = #{dsId},
+            </if>
+			<if test="schema != null and schema !=''">
+				NOTE_SCHEMA = #{schema},
+			</if>
+            <if test="query != null and query !=''">
+                NOTE_QUERY = #{query},
+            </if>
+            LAST_MODIFIED_DATE = current_timestamp
+        </trim>
+        WHERE NOTE_ID = #{id}
+    </update>
+
+    <update id="updateUsedTimes" parameterType="Long">
+        UPDATE DATABANK.TBL_DB_NOTE
+        SET NOTE_USED_TIMES = NOTE_USED_TIMES + 1
+        WHERE NOTE_ID = #{id}
+    </update>
+
+    <update id="migrate" parameterType="map">
+        UPDATE DATABANK.TBL_DB_USER_NOTE
+        SET USER_ID = #{toUserId}
+        WHERE USER_ID = #{fromUserId}
+    </update>
+</mapper>

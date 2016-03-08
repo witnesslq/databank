@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/wall/violation
+END
+ErrorCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/wall/violation/ErrorCode.java
+END
+IllegalSQLObjectViolation.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/wall/violation/IllegalSQLObjectViolation.java
+END
+SyntaxErrorViolation.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/core/druid/wall/violation/SyntaxErrorViolation.java
+END

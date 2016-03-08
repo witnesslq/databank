@@ -1,0 +1,27 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 17
+/YeePay/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/YeePay/!svn/ver/195831/dev/app/databank-boss/branches/hotfix_20141203
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/YeePay/!svn/ver/193595/dev/app/databank-boss/branches/hotfix_20141203/pom.xml
+END
+yuicompress.sh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/yuicompress.sh
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/README.md
+END

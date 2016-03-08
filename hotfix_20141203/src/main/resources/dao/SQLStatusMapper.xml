@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SQLStatusEntity">
+    <resultMap id="sqlStatusDetailMap" type="SQLStatusEntity">
+        <result column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="SQLSTATE" property="sqlStatus" jdbcType="VARCHAR"/>
+        <result column="EXPLANATION" property="explanation" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="count" resultType="Long">
+        SELECT
+            COUNT(1)
+        FROM DATABANK.TBL_SQL_MSG
+        WITH UR
+    </select>
+
+    <select id="get" parameterType="Long" resultMap="sqlStatusDetailMap">
+        SELECT *
+        FROM DATABANK.TBL_SQL_MSG
+        WHERE ID = #{id}
+        WITH UR
+    </select>
+
+	<select id="getBySQLStatus" parameterType="String" resultMap="sqlStatusDetailMap">
+		SELECT *
+		FROM DATABANK.TBL_SQL_MSG
+		WHERE SQLSTATE = #{sqlStatus}
+		WITH UR
+	</select>
+
+    <insert id="insert" parameterType="SQLStatusEntity">
+        INSERT INTO DATABANK.TBL_SQL_MSG (SQLSTATE, EXPLANATION)
+        VALUES (#{sqlStatus}, #{explanation})
+    </insert>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM DATABANK.TBL_SQL_MSG
+        WHERE ID = #{id}
+    </delete>
+
+    <update id="update" parameterType="SQLStatusEntity">
+        UPDATE DATABANK.TBL_SQL_MSG
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="sqlStatus != null and sqlStatus != ''">
+				SQLSTATE = #{sqlStatus},
+            </if>
+            <if test="explanation != null and explanation != ''">
+				EXPLANATION = #{explanation},
+            </if>
+        </trim>
+        WHERE ID = #{id}
+    </update>
+</mapper>

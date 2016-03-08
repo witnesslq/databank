@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/YeePay/!svn/ver/193595/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/servlet
+END
+ServletToBeanProxy.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/YeePay/!svn/ver/139276/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/servlet/ServletToBeanProxy.java
+END
+ScheduleServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/YeePay/!svn/ver/193595/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/servlet/ScheduleServlet.java
+END
+DiskCleanServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/YeePay/!svn/ver/193595/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/servlet/DiskCleanServlet.java
+END
+Servlets.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/servlet/Servlets.java
+END
+StaticContentServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/YeePay/!svn/ver/121901/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/servlet/StaticContentServlet.java
+END

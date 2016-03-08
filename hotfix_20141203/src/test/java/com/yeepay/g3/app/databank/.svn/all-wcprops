@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/YeePay/!svn/ver/193227/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/app/databank
+END
+BaseBizTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/app/databank/BaseBizTest.java
+END
+QuickStartServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/app/databank/QuickStartServer.java
+END
+SpringTransactionalTests.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/test/java/com/yeepay/g3/app/databank/SpringTransactionalTests.java
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl
+END
+StatUserDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl/StatUserDaoImpl.java
+END
+UserDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/YeePay/!svn/ver/194791/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl/UserDaoImpl.java
+END
+LogDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl/LogDaoImpl.java
+END
+RoleDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl/RoleDaoImpl.java
+END
+SQLStatusDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl/SQLStatusDaoImpl.java
+END
+ApplyDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl/ApplyDaoImpl.java
+END
+NoteDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/YeePay/!svn/ver/140343/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl/NoteDaoImpl.java
+END
+DataBankSourceDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/YeePay/!svn/ver/187360/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/impl/DataBankSourceDaoImpl.java
+END

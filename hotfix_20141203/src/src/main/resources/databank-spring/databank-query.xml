@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="queryService" class="com.yeepay.g3.utils.query.impl.QueryServiceImpl">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="querys">
+            <map>
+                <!-- 用户查询 -->
+                <entry key="queryUser">
+                    <bean class="com.yeepay.g3.utils.query.Query">
+                        <property name="sql">
+                            <value>
+                                <![CDATA[
+					        select u.user_id,login_name,ds_name,listagg(role_name,',') within group (order by u.user_id) as role_name from TBL_DB_USER u
+							left join TBL_DB_USER_ROLE ur on u.user_id = ur.user_id
+							left join TBL_DB_ROLE r on ur.role_id = r.role_id
+							left join TBL_DB_DATASOURCE d on d.DS_ID = last_ds
+							where 1=1
+								/~loginName: and U.login_name like '%'||{loginName}||'%'~/
+								/~roleId: and UR.role_id = {roleId}~/
+							group by u.user_id,login_name,ds_name
+							order by u.user_id desc
+							WITH UR
+							]]>
+                            </value>
+                        </property>
+                    </bean>
+                </entry>
+
+                <!-- 角色查询 -->
+                <entry key="queryRole">
+                    <bean class="com.yeepay.g3.utils.query.Query">
+                        <property name="sql">
+                            <value>
+                                <![CDATA[
+							select * from TBL_DB_ROLE r
+							where 1=1
+								/~roleName: and r.role_name like '%'||{roleName}||'%'~/
+								/~dsId: and r.permissions like '%'||{dsId}||'%'~/
+							with ur
+							]]>
+                            </value>
+                        </property>
+                    </bean>
+                </entry>
+
+                <!-- 数据源查询 -->
+                <entry key="queryDataSource">
+                    <bean class="com.yeepay.g3.utils.query.Query">
+                        <property name="sql">
+                            <value>
+                                <![CDATA[
+							select * from TBL_DB_DATASOURCE d
+							where 1=1
+								/~dsName: and d.ds_name like '%'||{dsName}||'%'~/
+								/~dbType: and d.db_type = {dbType}~/
+								/~dsUserName: and d.ds_username like '%'||{dsUserName}||'%'~/
+							with ur
+							]]>
+                            </value>
+                        </property>
+                    </bean>
+                </entry>
+
+                <!-- 笔记查询 /~query: and n.note_query like '%'||{query}||'%'~/ -->
+                <entry key="queryNote">
+                    <bean class="com.yeepay.g3.utils.query.Query">
+                        <property name="sql">
+                            <value>
+                                <![CDATA[
+					        select n.*,d.ds_name from TBL_DB_NOTE n
+							inner join TBL_DB_USER_NOTE un on n.NOTE_ID = un.NOTE_ID
+								/~userId: and un.USER_ID = {userId}~/
+								/~dsId: and n.note_ds_id = {dsId}~/
+								/~noteName: and n.note_name like '%'||{noteName}||'%'~/
+								/~query: and n.note_query like '%'||{query}||'%'~/
+							left join TBL_DB_DATASOURCE d on n.NOTE_DS_ID = d.ds_id
+							order by note_used_times desc
+							with ur
+							]]>
+                            </value>
+                        </property>
+                    </bean>
+                </entry>
+
+                <!-- 操作日志查询 -->
+                <entry key="queryOperationLog">
+                    <bean class="com.yeepay.g3.utils.query.Query">
+                        <property name="sql">
+                            <value>
+                                <![CDATA[
+							select el.*,ds.ds_name from TBL_DB_LOG el
+							inner join TBL_DB_DATASOURCE ds on el.log_ds_id=ds.ds_id
+							where 1=1
+								/~logLevel: and el.log_level = {logLevel,String}~/
+								/~logDsId: and el.log_ds_id = {logDsId,long}~/
+								/~schema: and el.log_schema = {schema,String}~/
+								/~sqlStatus: and el.log_sql_status = {sqlStatus,String}~/
+								/~logExecutor: and el.log_executor like '%'||{logExecutor}||'%'~/
+								/~startTime: and el.log_start_datetime >= '[startTime,mintimestamp]'~/
+								/~endTime: and el.log_start_datetime <= '[endTime,maxtimestamp]'~/
+								/~startScore: and el.log_score >= '[startScore,long]'~/
+								/~endScore: and el.log_score <= '[endScore,long]'~/
+							order by el.log_id desc
+							with ur
+							]]>
+                            </value>
+                        </property>
+                    </bean>
+                </entry>
+
+                <!-- 出错码查询 -->
+                <entry key="queryError">
+                    <bean class="com.yeepay.g3.utils.query.Query">
+                        <property name="sql">
+                            <value>
+                                <![CDATA[
+							select * from TBL_SQL_MSG
+							where 1=0
+								/~sqlState: or sqlstate = {sqlState,String}~/
+							with ur
+							]]>
+                            </value>
+                        </property>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

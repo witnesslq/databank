@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:emvc="http://www.yeepay.com/schema/emvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.yeepay.com/schema/emvc http://www.yeepay.com/schema/emvc.xsd">
+
+    <emvc:global>
+        <emvc:property name="extensions" value="action"/>
+        <emvc:property name="defaultEncoding" value="utf-8"/>
+
+        <!--<emvc:interceptor name="loginInterceptor" ref="loginInterceptor"/>-->
+
+        <emvc:interceptor name="paramInterceptor"
+                          class="com.yeepay.g3.app.frame.interceptor.emvc.ParametersInterceptor"/>
+        <emvc:interceptor name="menuInterceptor" class="com.yeepay.g3.app.frame.interceptor.emvc.MenuInterceptor"/>
+        <emvc:interceptor name="ssoInterceptor" class="com.yeepay.g3.app.frame.interceptor.emvc.SSOInterceptor"/>
+        <emvc:interceptor name="authorityInterceptor"
+                          class="com.yeepay.g3.app.frame.interceptor.emvc.AuthorityInterceptor"/>
+        <emvc:interceptor name="operationLogInterceptor"
+                          class="com.yeepay.g3.app.frame.interceptor.emvc.OperationLogInterceptor"/>
+        <emvc:interceptor name="exceptionInterceptor" ref="exceptionInterceptor"/>
+
+        <emvc:interceptorStack name="databankInterceptorStack"
+                               interceptors="exceptionInterceptor,operationLogInterceptor,paramInterceptor,ssoInterceptor,menuInterceptor,authorityInterceptor"/>
+
+        <emvc:result name="success" value="/index.jsp"/>
+        <emvc:result name="result_null" value="/WEB-INF/jsp/result_null.js"/>
+        <emvc:result name="error" value="/WEB-INF/views/common/error.jsp"/>
+
+        <emvc:defaultInterceptors ref="databankInterceptorStack"/>
+    </emvc:global>
+
+    <import resource="classpath:databank-action/databank-account.xml"/>
+    <import resource="classpath:databank-action/databank-datasource.xml"/>
+    <import resource="classpath:databank-action/databank-report.xml"/>
+    <import resource="classpath:databank-action/databank-note.xml"/>
+    <import resource="classpath:databank-action/databank-log.xml"/>
+    <import resource="classpath:databank-action/databank-stat.xml"/>
+
+</beans>

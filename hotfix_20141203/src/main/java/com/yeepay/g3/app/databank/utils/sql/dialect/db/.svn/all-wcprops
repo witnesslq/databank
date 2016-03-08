@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/YeePay/!svn/ver/193227/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/utils/sql/dialect/db
+END
+MySQLDB2Dialect.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/YeePay/!svn/ver/193227/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/utils/sql/dialect/db/MySQLDB2Dialect.java
+END
+DB2Dialect.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/YeePay/!svn/ver/117226/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/utils/sql/dialect/db/DB2Dialect.java
+END

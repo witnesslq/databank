@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao
+END
+GenericDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/GenericDao.java
+END
+UserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/YeePay/!svn/ver/194791/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/UserDao.java
+END
+GenericDaoDefault.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/GenericDaoDefault.java
+END
+LogDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/LogDao.java
+END
+RoleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/YeePay/!svn/ver/195821/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/RoleDao.java
+END
+SQLStatusDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/SQLStatusDao.java
+END
+ApplyDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/YeePay/!svn/ver/187421/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/ApplyDao.java
+END
+NoteDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/YeePay/!svn/ver/140343/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/NoteDao.java
+END
+DataBankSourceDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/YeePay/!svn/ver/187360/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/DataBankSourceDao.java
+END
+StatUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/YeePay/!svn/ver/110961/dev/app/databank-boss/branches/hotfix_20141203/src/main/java/com/yeepay/g3/app/databank/dao/StatUserDao.java
+END
